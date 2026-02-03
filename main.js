@@ -5,7 +5,16 @@
      SWUP — PAGE ROUTER
   ============================================================ */
 
-  window.swup = new Swup({ containers: ["#swup"] });
+  window.swup = new Swup({
+    containers: ["#swup"],
+    cache: true,
+    plugins: [
+      new SwupPreloadPlugin({
+        preloadHoveredLinks: true,
+        preloadVisibleLinks: { threshold: 0.2, delay: 300 },
+      }),
+    ],
+  });
 
   /* ============================================================
      ACTIVE LINKS (w--current)
